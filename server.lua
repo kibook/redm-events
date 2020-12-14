@@ -1,0 +1,30 @@
+function PlayAudio(url)
+	TriggerClientEvent('events:playAudio', -1, url)
+end
+
+function PauseAudio()
+	TriggerClientEvent('events:pauseAudio', -1, url)
+end
+
+function PlayVideo(url, width, height, left, top, opacity)
+	TriggerClientEvent('events:playVideo', -1, url, width, height, left, top, opacity)
+end
+
+function PauseVideo()
+	TriggerClientEvent('events:pauseVideo', -1)
+end
+
+function ScreenFadeOut(duration)
+	TriggerClientEvent('events:screenFadeOut', -1, duration)
+end
+
+function ScreenFadeIn(duration)
+	TriggerClientEvent('events:screenFadeIn', -1, duration)
+end
+
+exports('playAudio', PlayAudio)
+exports('pauseAudio', PauseAudio)
+exports('playVideo', PlayVideo)
+exports('pauseVideo', PauseVideo)
+exports('screenFadeOut', ScreenFadeOut)
+exports('screenFadeIn', ScreenFadeIn)
