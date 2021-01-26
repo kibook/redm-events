@@ -22,9 +22,19 @@ function ScreenFadeIn(duration)
 	TriggerClientEvent('events:screenFadeIn', -1, duration)
 end
 
+function AnimpostfxPlay(effectName)
+	TriggerClientEvent('events:animpostfxPlay', -1, effectName)
+end
+
+function AnimpostfxStop(effectName)
+	TriggerClientEvent('events:animpostfxStop', -1, effectName)
+end
+
 exports('playAudio', PlayAudio)
 exports('pauseAudio', PauseAudio)
 exports('playVideo', PlayVideo)
 exports('pauseVideo', PauseVideo)
 exports('screenFadeOut', ScreenFadeOut)
 exports('screenFadeIn', ScreenFadeIn)
+exports('animpostfxPlay', AnimpostfxPlay)
+exports('animpostfxStop', AnimpostfxStop)

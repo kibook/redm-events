@@ -4,6 +4,8 @@ RegisterNetEvent('events:playVideo')
 RegisterNetEvent('events:pauseVideo')
 RegisterNetEvent('events:screenFadeOut')
 RegisterNetEvent('events:screenFadeIn')
+RegisterNetEvent('events:animpostfxPlay')
+RegisterNetEvent('events:animpostfxStop')
 
 AddEventHandler('events:playAudio', function(url)
 	SendNUIMessage({
@@ -42,4 +44,12 @@ end)
 
 AddEventHandler('events:screenFadeIn', function(duration)
 	DoScreenFadeIn(duration)
+end)
+
+AddEventHandler('events:animpostfxPlay', function(effectName)
+	AnimpostfxPlay(effectName)
+end)
+
+AddEventHandler('events:animpostfxStop', function(effectName)
+	AnimpostfxStop(effectName)
 end)
