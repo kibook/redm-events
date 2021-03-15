@@ -1,13 +1,13 @@
-function PlayAudio(url)
-	TriggerClientEvent('events:playAudio', -1, url)
+function PlayAudio(url, volume)
+	TriggerClientEvent('events:playAudio', -1, url, volume)
 end
 
 function PauseAudio()
 	TriggerClientEvent('events:pauseAudio', -1, url)
 end
 
-function PlayVideo(url, width, height, left, top, opacity)
-	TriggerClientEvent('events:playVideo', -1, url, width, height, left, top, opacity)
+function PlayVideo(url, volume, width, height, left, top, opacity)
+	TriggerClientEvent('events:playVideo', -1, url, volume, width, height, left, top, opacity)
 end
 
 function PauseVideo()

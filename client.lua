@@ -7,10 +7,11 @@ RegisterNetEvent('events:screenFadeIn')
 RegisterNetEvent('events:animpostfxPlay')
 RegisterNetEvent('events:animpostfxStop')
 
-AddEventHandler('events:playAudio', function(url)
+AddEventHandler('events:playAudio', function(url, volume)
 	SendNUIMessage({
 		action = 'playAudio',
-		url = url
+		url = url,
+		volume = volume or 1.0
 	})
 end)
 
@@ -20,10 +21,11 @@ AddEventHandler('events:pauseAudio', function()
 	})
 end)
 
-AddEventHandler('events:playVideo', function(url, width, height, left, top, opacity)
+AddEventHandler('events:playVideo', function(url, volume, width, height, left, top, opacity)
 	SendNUIMessage({
 		action = 'playVideo',
 		url = url,
+		volume = volume or 1.0,
 		width = width,
 		height = height,
 		left = left,

@@ -1,10 +1,11 @@
-function playAudio(url) {
+function playAudio(data) {
 	var audio = document.querySelector('#audio-player');
-	audio.src = url;
+	audio.src = data.url;
+	audio.volume = data.volume;
 	audio.play();
 }
 
-function pauseAudio(url) {
+function pauseAudio() {
 	var audio = document.querySelector('#audio-player');
 	audio.pause();
 }
@@ -20,28 +21,29 @@ function playVideo(data) {
 	var video = document.createElement('video');
 
 	video.src = data.url;
+	video.volume = data.volume;
 
 	video.style.position = 'absolute';
 	video.style.objectFit = 'fill';
 
-	if (data.width > 0) {
+	if (data.width) {
 		video.style.width = data.width + 'vw';
 	} else {
 		video.style.width = '50vw';
 	}
-	if (data.height > 0) {
+	if (data.height) {
 		video.style.height = data.height + 'vh';
 	} else {
 		video.style.height = '50vh';
 	}
 
-	if (data.left > 0 || data.top > 0) {
-		if (data.left > 0) {
+	if (data.left || data.top) {
+		if (data.left) {
 			video.style.left = data.left + 'vw';
 		} else {
 			video.style.left = '0vw';
 		}
-		if (data.top > 0) {
+		if (data.top) {
 			video.style.top = data.top + 'vh';
 		} else {
 			video.style.top = '0vh';
@@ -52,7 +54,7 @@ function playVideo(data) {
 		video.style.transform = 'translate(-50%, -50%)';
 	}
 
-	if (data.opacity > 0) {
+	if (data.opacity) {
 		video.style.opacity = data.opacity + '%';
 	}
 
@@ -75,7 +77,7 @@ function pauseVideo() {
 window.addEventListener('message', function (event) {
 	switch (event.data.action) {
 		case 'playAudio':
-			playAudio(event.data.url);
+			playAudio(event.data);
 			break;
 		case 'pauseAudio':
 			pauseAudio();
